@@ -1,0 +1,11 @@
+Dook Fashion Store - Build 13
+
+Changes in this build:
+- Replaced the previous homepage category shortcuts with eight responsive feature tiles.
+- Active tile: Products Dook. Opens the complete product catalog with all products visible and no category, price, search, or sorting filters applied.
+- Disabled tiles with a Coming Soon label: Products Koblen, Products Mah Poosh, Products Bavan, Set Khodkar, Parvaye Majazi, Sets, and Virtual Store Tour.
+- Four brand/product tiles are shown in the first group; four future-feature tiles are shown in the second group.
+- Tile layout adapts to mobile and desktop and respects the existing light/dark themes.
+- Existing homepage hero slider, product catalog, wheel popup, order tracking, gallery, admin, and settings code retained from build 12.
+
+Validation: JavaScript syntax and ZIP integrity checks are run during packaging. Live Netlify deployment and device/browser rendering are not performed here.

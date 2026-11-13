@@ -1,0 +1,8 @@
+{
+  "name": "dook-fashion-store",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@netlify/identity": "2.0.1"
+  }
+}

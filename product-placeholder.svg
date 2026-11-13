@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 700">
+<rect width="600" height="700" rx="36" fill="#f6eadc"/>
+<path d="M205 115l-95 55-62 112 90 49 43-65v290h238V266l43 65 90-49-62-112-95-55-55 56h-80z" fill="#7a3b35" stroke="#542713" stroke-width="12" stroke-linejoin="round"/>
+<path d="M205 115q95 92 190 0M245 171l55 48 55-48" fill="none" stroke="#d8b98c" stroke-width="10" stroke-linecap="round"/>
+<path d="M190 300h220M190 355h220" stroke="#d8b98c" stroke-width="8" stroke-dasharray="8 15"/>
+<text x="300" y="625" font-size="34" text-anchor="middle" fill="#542713" font-family="Tahoma">پوشاک هنری دوک</text>
+</svg>

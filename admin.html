@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#35180D"><title>ورود مدیریت | دوک</title>
+<style>
+:root{color-scheme:light;--bg:#fbf2e9;--card:#fff9f2;--brown:#542713;--dark:#35180d;--gold:#b58a55;--line:#e8d5c2}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(145deg,#f8eadb,#fbf6ef);font-family:Tahoma,Arial,sans-serif;color:var(--dark);display:grid;place-items:center;padding:20px}.panel{width:min(100%,920px);background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 18px 55px #54271316}.logo{text-align:center;margin-bottom:24px}.logo strong{display:block;font-size:38px;color:var(--brown);letter-spacing:2px}.logo span{font-size:12px;color:#8c694e}.eyebrow{text-align:center;font-size:13px;color:#8c694e;margin-bottom:8px}h1{font-size:21px;text-align:center;margin:0 0 22px}.field{margin:14px 0}.field label{display:block;font-size:13px;margin-bottom:8px}.field input{width:100%;border:1px solid var(--line);border-radius:12px;background:#fff;padding:13px;font:inherit;font-size:14px;outline:none}.field input:focus{border-color:var(--gold);box-shadow:0 0 0 3px #b58a5520}.btn{width:100%;border:0;border-radius:12px;background:var(--brown);color:white;padding:13px;font:inherit;font-size:14px;cursor:pointer;margin-top:8px}.btn:disabled{opacity:.6;cursor:wait}.link{display:block;border:0;background:none;color:var(--brown);font:inherit;font-size:13px;text-decoration:underline;cursor:pointer;margin:16px auto 0}.msg{display:none;margin:14px 0 0;padding:11px;border-radius:11px;background:#f4eadc;color:#68431f;font-size:12px;line-height:1.9}.msg.show{display:block}.fine{font-size:11px;color:#8c7969;text-align:center;line-height:1.9;margin-top:20px}.hidden{display:none!important}.userline{font-size:12px;text-align:center;color:#80634c;direction:ltr;margin-bottom:15px}
+
+.admin-tools{margin-top:18px;text-align:right}.admin-tools .btn{margin:6px 0}.admin-select,.admin-input{width:100%;padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff;font:inherit;margin:6px 0 12px;color:var(--dark)}.gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}.gallery-item{border:1px solid var(--line);border-radius:14px;padding:8px;background:#fff}.gallery-item img{width:100%;aspect-ratio:1;object-fit:contain;object-position:center;border-radius:9px;background:#f7eee5}.gallery-item small{display:block;font-size:11px;color:#80634c;margin:6px 0}.gallery-actions{display:flex;gap:4px;flex-wrap:wrap}.gallery-actions button{border:0;border-radius:8px;padding:7px 8px;background:#f1e5d8;color:#542713;font:inherit;font-size:11px}.gallery-actions button.danger{background:#fae5e2;color:#8a2820}.admin-note{font-size:12px;line-height:1.9;color:#80634c;background:#f4eadc;padding:10px;border-radius:10px}.admin-heading{font-size:15px;margin:18px 0 8px}.orders-list{display:grid;gap:12px;margin:12px 0 20px}.order-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}.order-card h3{font-size:14px;margin:0 0 8px}.order-meta{font-size:12px;line-height:2;color:#80634c}.order-items{font-size:12px;line-height:2;margin:8px 0}.order-actions{display:flex;gap:8px;flex-wrap:wrap}.order-actions button{border:0;border-radius:9px;padding:9px 12px;background:#542713;color:white;font:inherit;font-size:12px}.order-actions button.danger{background:#fae5e2;color:#8a2820}.section-title{display:flex;align-items:center;justify-content:space-between;gap:10px}.section-title .btn{width:auto;padding:9px 12px;margin:0;font-size:12px}
+
+/* DOOK admin redesign */
+body{display:block;padding:18px;background:radial-gradient(circle at top right,#f1dfca 0,#fbf5ee 42%,#f7eee5 100%)}
+.panel{width:min(100%,1180px);margin:18px auto;padding:clamp(16px,3vw,34px);border-radius:28px;box-shadow:0 24px 70px #35180d18}
+.logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:8px}.logo strong{font-size:34px}.eyebrow{margin-bottom:20px}
+#dashboardView>h1{text-align:right;margin:8px 0 5px;font-size:25px}.userline{text-align:right;margin:0 0 20px;padding:10px 13px;background:#f5eadd;border-radius:12px;display:inline-block}
+.admin-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#3d1d10;color:#fff;padding:12px 14px;border-radius:17px;margin:16px 0 20px;box-shadow:0 9px 22px #35180d20}
+.admin-nav strong{font-size:14px}.admin-nav select{width:min(58%,290px);margin:0;background:#fff;color:#35180d;border:0;border-radius:11px;padding:11px;font:inherit}
+.admin-home{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:14px 0 22px}
+.admin-tile{appearance:none;text-align:right;border:1px solid #ead8c6;background:linear-gradient(145deg,#fffdf9,#f8eee3);border-radius:19px;padding:19px;min-height:132px;color:#35180d;cursor:pointer;box-shadow:0 8px 22px #5427130c;transition:.18s;font:inherit}
+.admin-tile:hover{transform:translateY(-3px);border-color:#b58a55;box-shadow:0 14px 28px #54271316}.admin-tile .tile-icon{width:42px;height:42px;display:grid;place-items:center;background:#f0dfcc;border-radius:13px;font-size:21px;margin-bottom:13px}.admin-tile b{display:block;font-size:15px;margin-bottom:6px}.admin-tile small{font-size:11px;color:#8c694e;line-height:1.8}
+.admin-section{background:#fffdfa;border:1px solid #ead8c6;border-radius:20px;padding:clamp(14px,2.5vw,24px);margin:0 0 18px;box-shadow:0 8px 24px #54271308}.admin-section>h2,.admin-section .admin-heading{color:#542713}.section-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.section-top h2{margin:0;font-size:19px}.back-home{border:1px solid #e5d1bd;background:#fff7ee;color:#542713;border-radius:10px;padding:9px 12px;font:inherit;cursor:pointer;font-size:12px}
+.admin-tools{margin-top:0}.admin-tools .btn{max-width:360px}.admin-select,.admin-input{border-color:#e6d5c4}.admin-note{background:#f8efe5;border:1px solid #f0e2d3}.gallery-grid{grid-template-columns:repeat(auto-fill,minmax(135px,1fr))}.gallery-item{overflow:hidden}.order-card{box-shadow:0 4px 14px #54271308}.field{margin:12px 0}.field label{font-weight:600}.field input,.admin-input{min-height:44px}.settings-group{border:1px solid #eee0d2;border-radius:16px;padding:16px;margin:14px 0;background:#fff}.settings-group h3{margin:0 0 12px;font-size:15px;color:#704329}.upload-preview{display:flex;align-items:center;gap:12px;margin:8px 0 14px}.upload-preview img{width:116px;height:76px;object-fit:contain;object-position:center;border-radius:11px;border:1px solid #ead8c6;background:#f7eee5}.upload-preview span{font-size:11px;color:#80634c}.image-pick{display:block;width:100%;padding:12px;border:1px dashed #c6a47e;border-radius:12px;background:#fffaf4;font:inherit;color:#542713;margin:8px 0}.slide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.slide-card{border:1px solid #ead8c6;border-radius:15px;padding:13px;background:#fffaf5}.slide-card b{display:block;margin-bottom:8px}.admin-checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.admin-checks label{background:#faf4ed;padding:12px;border-radius:11px;font-size:13px}
+#logoutBtn{max-width:220px;background:#7a2c23}.hidden{display:none!important}
+@media(max-width:600px){body{padding:8px}.panel{margin:8px auto;border-radius:20px;padding:15px}.admin-nav{align-items:stretch;flex-direction:column}.admin-nav select{width:100%}.admin-home{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.admin-tile{padding:13px;min-height:124px}.admin-tile b{font-size:13px}.admin-tile small{font-size:10px}.section-top{align-items:flex-start}.section-top h2{font-size:16px}}
+
+
+/* v11 responsive image previews: never crop or distort source uploads */
+.gallery-item img,.upload-preview img{object-fit:contain;object-position:center;background:#f7eee5}
+.gallery-item img{width:100%;aspect-ratio:1;height:auto}
+.upload-preview img{max-width:42%;height:76px;flex:0 0 116px}
+@media(max-width:380px){.gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.gallery-item{min-width:0}}
+</style>
+</head>
+<body>
+<main class="panel">
+  <div class="logo"><strong>DOOK</strong><span>فروشگاه پوشاک دوک</span></div>
+  <div class="eyebrow">پنل اختصاصی فروشگاه</div>
+  <section id="loginView">
+    <h1>ورود مدیر</h1>
+    <form id="loginForm">
+      <div class="field"><label for="email">ایمیل مدیر</label><input id="email" type="email" value="majidboushi@gmail.com" autocomplete="username" required></div>
+      <div class="field"><label for="password">رمز عبور</label><input id="password" type="password" autocomplete="current-password" required></div>
+      <button class="btn" type="submit">ورود به پنل</button>
+    </form>
+    <button class="link" id="forgotBtn" type="button">رمز عبورم را فراموش کردم</button>
+  </section>
+  <section id="resetView" class="hidden">
+    <h1>تنظیم رمز جدید</h1>
+    <form id="resetForm">
+      <div class="field"><label for="newPassword">رمز عبور جدید</label><input id="newPassword" type="password" minlength="8" autocomplete="new-password" required></div>
+      <div class="field"><label for="confirmPassword">تکرار رمز عبور</label><input id="confirmPassword" type="password" minlength="8" autocomplete="new-password" required></div>
+      <button class="btn" type="submit">ذخیره رمز جدید</button>
+    </form>
+  </section>
+  <section id="dashboardView" class="hidden">
+    <h1>مدیریت فروشگاه</h1><div id="signedEmail" class="userline"></div>
+    <div class="admin-home" id="adminHome">
+      <button class="admin-tile" data-open-section="gallery"><span class="tile-icon">▧</span><b>گالری تصاویر کالا</b><small>عکس‌های کالای مادر و تنوع‌ها</small></button>
+      <button class="admin-tile" data-open-section="orders"><span class="tile-icon">▤</span><b>سفارش‌ها</b><small>بررسی، تأیید و پیگیری سفارش‌ها</small></button>
+      <button class="admin-tile" data-open-section="wheel"><span class="tile-icon">🎁</span><b>گردونه شانس</b><small>مشاهده برندگان و کد جوایز</small></button>
+      <button class="admin-tile" data-open-section="settings"><span class="tile-icon">⚙</span><b>تنظیمات و محتوای سایت</b><small>بنرها، اسلایدر، صفحات و ظاهر فروشگاه</small></button>
+    </div>
+    <div class="admin-nav"><strong>منوی مدیریت دوک</strong><select id="adminSectionMenu"><option value="home">صفحه اصلی مدیریت</option><option value="gallery">گالری تصاویر کالا</option><option value="orders">مدیریت سفارش‌ها</option><option value="wheel">گردونه شانس و جوایز</option><option value="settings">بنرها و اسلایدرها</option></select></div>
+    <section class="admin-section hidden" id="section-gallery"><div class="section-top"><h2>گالری تصاویر کالا</h2><button class="back-home" data-go-home>بازگشت به صفحه اصلی</button></div>
+    <div class="admin-tools">
+      <p class="admin-note">برای هر کالای مادر
+      <label class="admin-heading" for="productSelect">۱. انتخاب کالای مادر</label><select id="productSelect" class="admin-select"><option value="">در حال دریافت کالاها…</option></select>
+      <label class="admin-heading" for="variantSelect">۲. انتخاب محل گالری</label><select id="variantSelect" class="admin-select"><option value="">گالری کالای مادر</option></select>
+      <label class="admin-heading" for="imageFiles">۳. افزودن تصاویر (حداکثر ۱۲ تصویر، هرکدام ۱۰ مگابایت)</label><input id="imageFiles" class="admin-input" type="file" accept="image/*" multiple>
+      <button class="btn" id="uploadBtn" type="button">بارگذاری تصاویر انتخاب‌شده</button>
+      <div id="adminStatus" class="msg show">ابتدا کالا را انتخاب کن.</div>
+      <h2 class="admin-heading">اسلایدهای تکمیلی</h2><p class="admin-note">تصویر اصلی کالا و هر تنوع همیشه از آدین نمایش داده می‌شود و قابل جایگزینی نیست؛ عکس‌های این بخش فقط اسلایدهای بعدی هستند.</p><div id="galleryGrid" class="gallery-grid"></div>
+    </div></section>
+    <section class="admin-section hidden" id="section-orders"><div class="section-top"><h2>مدیریت سفارش‌ها</h2><button class="back-home" data-go-home>بازگشت به صفحه اصلی</button></div>
+    <div class="admin-tools">
+      <div class="section-title"><h2 class="admin-heading">مدیریت سفارش‌ها</h2><button class="btn" id="refreshOrders" type="button">به‌روزرسانی سفارش‌ها</button></div>
+      <p class="admin-note">سفارش‌های جدید ابتدا در انتظار تأیید می‌مانند. فقط با زدن دکمه تأیید، فاکتور در آدین ثبت و موجودی بررسی می‌شود؛ هیچ پرداختی ثبت نمی‌شود.</p>
+      <div id="ordersStatus" class="msg show">برای دریافت سفارش‌ها، دکمه به‌روزرسانی را بزن.</div>
+      <div id="ordersList" class="orders-list"></div>
+    </div>
+
+    </div></section>
+    <section class="admin-section hidden" id="section-wheel"><div class="section-top"><h2>گردونه شانس و جوایز</h2><button class="back-home" data-go-home>بازگشت به صفحه اصلی</button></div>
+      <p class="admin-note">فهرست جوایز ثبت‌شده، شماره موبایل برنده و کد اختصاصی هر جایزه. چون فعلاً تأیید پیامکی فعال نیست، شماره‌های ثبت‌شده با پیامک احراز نشده‌اند. اعمال تخفیف یا تحویل هدیه فعلاً به‌صورت دستی و پس از بررسی کد انجام می‌شود.</p>
+      <div class="section-title"><h2 class="admin-heading">آخرین جوایز ثبت‌شده</h2><button class="btn" id="refreshWheel" type="button">به‌روزرسانی جوایز</button></div>
+      <div id="wheelAdminStatus" class="msg show">برای دریافت جوایز، دکمه به‌روزرسانی را بزن.</div>
+      <div id="wheelAdminList" class="orders-list"></div>
+    </section>
+    <section class="admin-section hidden" id="section-settings"><div class="section-top"><h2>بنرها و اسلایدرهای صفحه اصلی</h2><button class="back-home" data-go-home>بازگشت به صفحه اصلی</button></div>
+    <div class="admin-tools" id="siteSettingsPanel">
+      <h2 class="admin-heading">مدیریت کامل ظاهر و محتوای سایت</h2>
+      <p class="admin-note">عکس بنرها و اسلایدها را مستقیم از گوشی انتخاب کن؛ نیازی به لینک عکس نیست. لینک مقصد بنر اختیاری است.</p>
+      <div class="settings-group"><h3>مشخصات و راه‌های ارتباطی</h3><div class="field"><label>نام فروشگاه</label><input class="admin-input" id="cfg_store_name"></div>
+      <div class="field"><label>شعار فروشگاه</label><input class="admin-input" id="cfg_tagline"></div>
+      <div class="field"><label>متن نوار بالای سایت</label><input class="admin-input" id="cfg_announcement"></div>
+      <div class="field"><label>شماره تماس اول</label><input class="admin-input" id="cfg_phone1" dir="ltr"></div>
+      <div class="field"><label>شماره تماس دوم</label><input class="admin-input" id="cfg_phone2" dir="ltr"></div>
+      <div class="field"><label>لینک اینستاگرام</label><input class="admin-input" id="cfg_instagram" dir="ltr"></div>
+      <div class="field"><label>لینک تلگرام</label><input class="admin-input" id="cfg_telegram" dir="ltr"></div>
+      <div class="field"><label>لینک ایتا</label><input class="admin-input" id="cfg_eitaa" dir="ltr"></div>
+      <div class="field"><label>لینک بله</label><input class="admin-input" id="cfg_bale" dir="ltr"></div></div>
+      <div class="settings-group"><h3>ارسال و هزینه‌ها</h3><div class="field"><label>هزینه ارسال (تومان)</label><input class="admin-input" id="cfg_shipping_fee" type="number" min="0"></div>
+      <div class="field"><label>حد خرید برای ارسال رایگان (صفر یعنی غیرفعال)</label><input class="admin-input" id="cfg_free_shipping_threshold" type="number" min="0"></div>
+      <div class="field"><label>متن توضیح ارسال</label><input class="admin-input" id="cfg_shipping_text"></div></div>
+      <div class="settings-group"><h3>بنر و محتوای صفحه اصلی</h3><div class="field"><label>عنوان اصلی صفحه خانه</label><input class="admin-input" id="cfg_home_title"></div>
+      <div class="field"><label>متن زیر عنوان صفحه خانه</label><input class="admin-input" id="cfg_home_subtitle"></div>
+      <input id="cfg_promo_image" type="hidden"><div class="field"><label>عکس بنر پیشنهاد ویژه</label><input class="image-pick" id="promoImageFile" type="file" accept="image/*"><div class="upload-preview"><img id="promoImagePreview" alt="پیش‌نمایش بنر" class="hidden"><span>انتخاب عکس از گالری گوشی یا رایانه</span></div></div>
+      <div class="field"><label>لینک مقصد بنر (اختیاری)</label><input class="admin-input" id="cfg_promo_link" dir="ltr"></div></div>
+      <div class="settings-group"><h3>نمایش بخش‌های صفحه اصلی</h3>
+      <label><input type="checkbox" id="cfg_show_categories" checked> نمایش دسته‌بندی‌ها</label><br>
+      <label><input type="checkbox" id="cfg_show_promo" checked> نمایش بنر پیشنهاد ویژه</label><br>
+      <label><input type="checkbox" id="cfg_show_new_products" checked> نمایش جدیدترین محصولات</label><br>
+      <label><input type="checkbox" id="cfg_show_featured" checked> نمایش پیشنهادهای ویژه</label><br>
+      <label><input type="checkbox" id="cfg_show_fabric" checked> نمایش بنر راهنمای پارچه</label></div>
+      <div class="settings-group"><h3>اسلایدر صفحه اصلی (تا ۳ اسلاید)</h3>
+      <div id="cfgSlides"></div></div>
+      <div class="settings-group"><h3>رنگ‌بندی سایت</h3>
+      <div class="field"><label>رنگ اصلی (HEX)</label><input class="admin-input" id="cfg_accent_color" placeholder="#542713" dir="ltr"></div>
+      <div class="field"><label>رنگ پس‌زمینه (HEX)</label><input class="admin-input" id="cfg_background_color" placeholder="#fbf7f1" dir="ltr"></div></div>
+      <div class="settings-group"><h3>متن صفحات و راهنماها</h3>
+      <div class="field"><label>درباره ما</label><textarea class="admin-input" id="cfg_page_about" rows="4"></textarea></div>
+      <div class="field"><label>ارسال و گارانتی</label><textarea class="admin-input" id="cfg_page_shipping" rows="4"></textarea></div>
+      <div class="field"><label>مرجوعی و تعویض</label><textarea class="admin-input" id="cfg_page_returns" rows="4"></textarea></div>
+      <div class="field"><label>سؤالات متداول</label><textarea class="admin-input" id="cfg_page_faq" rows="4"></textarea></div>
+      <div class="field"><label>راهنمای سایز</label><textarea class="admin-input" id="cfg_page_size" rows="4"></textarea></div>
+      <div class="field"><label>راهنمای نگهداری پارچه</label><textarea class="admin-input" id="cfg_page_fabric" rows="4"></textarea></div>
+      <div class="field"><label>خرید اقساطی</label><textarea class="admin-input" id="cfg_page_installments" rows="4"></textarea></div></div>
+      <button class="btn" id="saveSettings" type="button">ذخیره همه تنظیمات سایت</button>
+      <div id="settingsStatus" class="msg show">در حال دریافت تنظیمات…</div>
+    </div></section>
+
+    <button class="btn" id="logoutBtn" type="button">خروج از پنل</button>
+  </section>
+  <div id="message" class="msg" role="status" aria-live="polite"></div>
+  <p class="fine">ورود فقط برای حساب مدیر مجاز است. ثبت‌نام عمومی در این صفحه وجود ندارد.</p>
+</main>
+<script type="module">
+import { login, logout, getUser, handleAuthCallback, requestPasswordRecovery, updateUser, acceptInvite } from 'https://esm.sh/@netlify/identity@2.0.1';
+const ADMIN_EMAIL='majidboushi@gmail.com';
+const $=id=>document.getElementById(id);
+const views=['loginView','resetView','dashboardView'];
+function view(name){views.forEach(v=>$(v).classList.toggle('hidden',v!==name));}
+function message(text,isError=false){const el=$('message');el.textContent=text;el.classList.add('show');el.style.background=isError?'#fae5e2':'#f4eadc';el.style.color=isError?'#8a2820':'#68431f';}
+function clearMessage(){$('message').classList.remove('show');}
+var adminUser=null,adminProducts=[],activeGallery=[];
+function token(){const t=adminUser?.token;let v=(typeof t==='string'?t:(t?.access_token||t?.accessToken||t?.token||''))||adminUser?.access_token||adminUser?.accessToken||adminUser?.jwt||'';if(typeof v==='string'&&v.startsWith('{')){try{const j=JSON.parse(v);v=j.access_token||j.accessToken||j.token||'';}catch{}}return String(v||'').replace(/^Bearer\s+/i,'').trim();}
+function adminHeaders(){const t=token();return t?{Authorization:'Bearer '+t}:{};}
+function adminFetchOptions(options={}){return {...options,credentials:'same-origin',headers:{...adminHeaders(),...(options.headers||{})}};}
+function status(t,bad=false){var e=$('adminStatus');if(!e)return;e.textContent=t;e.classList.add('show');e.style.background=bad?'#fae5e2':'#f4eadc';e.style.color=bad?'#8a2820':'#68431f';}
+function productId(p){return String(p.product_id??p.id??p.local_id??'');}
+function skuList(p){var a=p.skus||p.variations||p.sku_list||p.variants||p.product_skus||[];return Array.isArray(a)?a.filter(s=>s&&skuId(s)):[];}
+function skuId(s){return String(s.sku_id??s.id??s.local_id??s.variant_id??'');}
+function skuName(s){return String(s.attributes_title??s.variation_title??s.sku_title??s.title??s.name??s.label??skuId(s));}
+function showUser(user){if(!user || (user.email||'').toLowerCase()!==ADMIN_EMAIL){view('loginView');return false;}adminUser=user;$('signedEmail').textContent=user.email;view('dashboardView');loadAdminProducts();loadOrders();loadSettings();return true;}
+async function boot(){
+  try{
+    const result=await handleAuthCallback();
+    const inviteToken=result?.type==='invite' ? result.token : sessionStorage.getItem('dook_admin_invite_token');
+    if(inviteToken){
+      const pass=prompt('برای فعال‌کردن حساب مدیر، یک رمز حداقل ۸ کاراکتری بسازید:');
+      if(!pass) {message('برای تکمیل دعوت، باید رمز تعیین شود.',true);return;}
+      const user=await acceptInvite(inviteToken,pass);
+      sessionStorage.removeItem('dook_admin_invite_token');
+      if(!showUser(user)){await logout();message('این دعوت برای حساب مدیر مجاز نیست.',true);}
+      else message('حساب مدیر فعال شد.');return;
+    }
+    if(result?.type==='recovery' || new URLSearchParams(location.search).get('recovery')==='1'){view('resetView');message('ایمیل بازیابی تأیید شد؛ رمز جدید را وارد کنید.');return;}
+    const user=await getUser();
+    if(user && !showUser(user)){await logout();message('این حساب اجازه ورود به پنل مدیریت را ندارد.',true);}
+  }catch(e){message('اتصال احراز هویت آماده نیست. ابتدا Netlify Identity باید برای سایت فعال شود. '+(e?.message||''),true);}
+}
+async function loadAdminProducts(){status('در حال دریافت فهرست کالاها از آدین…');try{var r=await fetch('/api/adin-proxy',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'get_products',params:{limit:500,page:1,with_skus:1,with_inventory:1}})});var d=await r.json();var dd=d&&d.data!==undefined?d.data:d;var list=Array.isArray(dd)?dd:(dd.products||dd.items||dd.rows||dd.result_list||dd.list||[]);if(!list.length)throw new Error(d.message||'فهرست کالاها از آدین دریافت نشد.');adminProducts=list;var sel=$('productSelect');sel.innerHTML='<option value="">انتخاب کالا…</option>'+list.map(function(p,i){return '<option value="'+i+'">'+String(p.name||p.title||p.product_name||p.product_title||('کالا '+(i+1))).replace(/[<>"']/g,'')+'</option>'}).join('');status(list.length+' کالا دریافت شد.');}catch(e){status('دریافت کالاها ناموفق بود: '+e.message,true);}}
+function selectedAdmin(){var i=$('productSelect').value;return i===''?null:adminProducts[Number(i)]||null;}
+function updateVariantOptions(){var p=selectedAdmin(),sel=$('variantSelect');if(!p){sel.innerHTML='<option value="">گالری کالای مادر</option>';return;}var arr=skuList(p);sel.innerHTML='<option value="">گالری کالای مادر</option>'+arr.map(function(s){return '<option value="'+skuId(s).replace(/["<>]/g,'')+'">'+skuName(s).replace(/["<>]/g,'')+'</option>'}).join('');loadAdminGallery();}
+function currentGalleryParams(){var p=selectedAdmin();return p?{product_id:productId(p),variant_id:$('variantSelect').value||''}:null;}
+async function loadAdminGallery(){var q=currentGalleryParams();if(!q||!q.product_id){$('galleryGrid').innerHTML='';return;}status('در حال دریافت تصاویر…');try{var u='/api/gallery?product_id='+encodeURIComponent(q.product_id)+(q.variant_id?'&variant_id='+encodeURIComponent(q.variant_id):'');var r=await fetch(u);var d=await r.json();if(!r.ok)throw new Error(d.error||'خطا در دریافت تصاویر');activeGallery=d.images||[];renderAdminGallery();status(activeGallery.length+' تصویر در این گالری ثبت شده است.');}catch(e){status(e.message,true);}}
+function renderAdminGallery(){var el=$('galleryGrid');if(!activeGallery.length){el.innerHTML='<p class="admin-note">هنوز تصویری برای این گالری ثبت نشده است.</p>';return;}el.innerHTML=activeGallery.map(function(x,i){return '<div class="gallery-item"><img src="'+x.public_url+'" alt=""><small>'+('اسلاید تکمیلی '+(i+1))+'</small><div class="gallery-actions"><button data-up="'+i+'">↑</button><button data-down="'+i+'">↓</button><button class="danger" data-delete="'+x.id+'">حذف</button></div></div>'}).join('');}
+async function adminPost(body){var r=await fetch('/api/gallery',adminFetchOptions({method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}));var d=await r.json();if(!r.ok)throw new Error(d.error||'عملیات انجام نشد');activeGallery=d.images||activeGallery;renderAdminGallery();return d;}
+var adminOrders=[];
+function orderStatusLabel(s){return ({pending_confirmation:'در انتظار تأیید',confirmed:'تأیید شده',sent_to_adin:'فاکتور در آدین ثبت شد',cancelled:'لغو شده',adin_error:'خطا در ثبت آدین'})[s]||s;}
+function orderEscape(v){return String(v??'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]});}
+function money(v){return Number(v||0).toLocaleString('fa-IR')+' تومان';}
+async function loadOrders(){var st=$('ordersStatus'),list=$('ordersList');st.textContent='در حال دریافت سفارش‌ها…';try{var r=await fetch('/api/orders',adminFetchOptions({cache:'no-store'}));var d=await r.json();if(!r.ok)throw new Error(d.error||'دریافت سفارش‌ها ناموفق بود');adminOrders=d.orders||[];list.innerHTML=adminOrders.length?adminOrders.map(function(o){var its=(o.items||[]).map(function(x){return orderEscape(x.title||x.product_id)+' × '+Number(x.qty||0)+(x.sku_id?' · تنوع '+orderEscape(x.sku_id):'')}).join('<br>');return '<article class="order-card"><h3>سفارش #'+orderEscape(o.order_number)+' — '+orderEscape(orderStatusLabel(o.status))+'</h3><div class="order-meta">'+orderEscape(o.customer_name)+' · '+orderEscape(o.phone)+'<br>'+orderEscape(o.province)+'، '+orderEscape(o.city)+'<br>'+orderEscape(o.address)+'<br>کد پستی: '+orderEscape(o.postal_code)+'<br>ثبت: '+new Date(o.created_at).toLocaleString('fa-IR')+'<br>مبلغ ثبت‌شده در سایت: '+money(o.total)+(o.adin_invoice_number?'<br>شماره فاکتور آدین: '+orderEscape(o.adin_invoice_number):'')+'</div><div class="order-items">'+its+'</div>'+(o.customer_note?'<div class="order-meta">توضیح مشتری: '+orderEscape(o.customer_note)+'</div>':'')+((o.status==='pending_confirmation'||o.status==='adin_error')?'<div class="order-actions"><button data-confirm-order="'+o.id+'">تأیید و ثبت فاکتور در آدین</button><button class="danger" data-cancel-order="'+o.id+'">لغو سفارش</button></div>':'')+'</article>';}).join(''):'<p class="admin-note">هنوز سفارشی ثبت نشده است.</p>';st.textContent=adminOrders.length+' سفارش دریافت شد.';}catch(e){st.textContent=e.message;st.style.background='#fae5e2';st.style.color='#8a2820';}}
+
+var wheelPrizeLabels={discount_5:'۵٪ تخفیف',voucher_200:'بن خرید ۲۰۰ هزار تومانی',discount_10:'۱۰٪ تخفیف',free_scarf:'شال رایگان',voucher_500:'بن خرید ۵۰۰ هزار تومانی'};
+async function loadWheelPrizes(){var st=$('wheelAdminStatus'),list=$('wheelAdminList');if(!st||!list)return;st.textContent='در حال دریافت جوایز…';try{var r=await fetch('/api/wheel',adminFetchOptions({cache:'no-store'}));var d=await r.json();if(!r.ok)throw new Error(d.error||'دریافت جوایز ناموفق بود');var rows=d.prizes||[];list.innerHTML=rows.length?rows.map(function(x){return '<article class="order-card"><h3>'+orderEscape(wheelPrizeLabels[x.prize_code]||x.prize_code)+'</h3><div class="order-meta">موبایل: <b dir="ltr">'+orderEscape(x.phone||'—')+'</b><br>کد جایزه: <b dir="ltr">'+orderEscape(x.claim_code||'—')+'</b><br>کد دعوت مشتری: <b dir="ltr">'+orderEscape(x.referral_code||'—')+'</b><br>زمان دریافت: '+new Date(x.created_at).toLocaleString('fa-IR')+'</div></article>';}).join(''):'<p class="admin-note">هنوز جایزه‌ای از گردونه دریافت نشده است.</p>';st.textContent=rows.length+' جایزه دریافت شد.';}catch(e){st.textContent=e.message;st.style.background='#fae5e2';st.style.color='#8a2820';}}
+$('refreshWheel').addEventListener('click',loadWheelPrizes);
+$('refreshOrders').addEventListener('click',loadOrders);
+$('ordersList').addEventListener('click',async function(e){var b=e.target.closest('button');if(!b)return;var id=b.dataset.confirmOrder||b.dataset.cancelOrder;if(!id)return;var confirmAction=!!b.dataset.confirmOrder;if(confirmAction&&!confirm('سفارش تأیید و برای ثبت فاکتور به آدین ارسال شود؟'))return;if(!confirmAction&&!confirm('این سفارش لغو شود؟'))return;b.disabled=true;$('ordersStatus').textContent=confirmAction?'در حال بررسی موجودی و ثبت فاکتور در آدین…':'در حال لغو سفارش…';try{var r=await fetch('/api/orders',adminFetchOptions({method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,action:confirmAction?'confirm':'cancel'})}));var d=await r.json();if(!r.ok)throw new Error(d.error||'عملیات انجام نشد');$('ordersStatus').textContent=confirmAction?'فاکتور با موفقیت در آدین ثبت شد.':'سفارش لغو شد.';await loadOrders();}catch(err){$('ordersStatus').textContent=err.message;$('ordersStatus').style.background='#fae5e2';$('ordersStatus').style.color='#8a2820';b.disabled=false;}});
+$('productSelect').addEventListener('change',updateVariantOptions);$('variantSelect').addEventListener('change',loadAdminGallery);
+$('uploadBtn').addEventListener('click',async function(){var q=currentGalleryParams(),files=$('imageFiles').files;if(!q)return status('ابتدا کالا را انتخاب کن.',true);if(!files.length)return status('حداقل یک تصویر انتخاب کن.',true);var fd=new FormData();fd.append('product_id',q.product_id);fd.append('variant_id',q.variant_id);Array.from(files).forEach(f=>fd.append('images',f));var b=this;b.disabled=true;status('در حال بارگذاری تصاویر…');try{var r=await fetch('/api/gallery',adminFetchOptions({method:'POST',body:fd}));var d=await r.json();if(!r.ok)throw new Error(d.error||'بارگذاری ناموفق بود');activeGallery=d.images||[];renderAdminGallery();$('imageFiles').value='';status(activeGallery.length+' تصویر در گالری ثبت شد.');}catch(e){status(e.message,true);}finally{b.disabled=false;}});
+$('galleryGrid').addEventListener('click',async function(e){var b=e.target.closest('button');if(!b)return;try{if(b.dataset.cover)await adminPost({action:'cover',id:b.dataset.cover,...currentGalleryParams()});else if(b.dataset.delete){var r=await fetch('/api/gallery',adminFetchOptions({method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:b.dataset.delete})}));var d=await r.json();if(!r.ok)throw new Error(d.error||'حذف انجام نشد');await loadAdminGallery();}else if(b.dataset.up!==undefined||b.dataset.down!==undefined){var i=Number(b.dataset.up??b.dataset.down),j=b.dataset.up!==undefined?i-1:i+1;if(j<0||j>=activeGallery.length)return;var arr=activeGallery.slice(),tmp=arr[i];arr[i]=arr[j];arr[j]=tmp;await adminPost({action:'reorder',ids:arr.map(x=>x.id),...currentGalleryParams()});}}catch(e){status(e.message,true);}});
+$('loginForm').addEventListener('submit',async e=>{e.preventDefault();clearMessage();const btn=e.submitter;btn.disabled=true;try{const user=await login($('email').value.trim(),$('password').value);if(!showUser(user)){await logout();message('این حساب مدیر مجاز نیست.',true);}else message('با موفقیت وارد پنل شدید.');}catch(err){message('ورود انجام نشد؛ ایمیل و رمز را بررسی کنید. اگر Identity هنوز فعال نشده، باید ابتدا از تنظیمات Netlify فعال شود.',true);}finally{btn.disabled=false;}});
+$('forgotBtn').addEventListener('click',async()=>{clearMessage();const email=$('email').value.trim();if(email.toLowerCase()!==ADMIN_EMAIL){message('بازیابی فقط برای ایمیل مدیر فعال است.',true);return;}try{await requestPasswordRecovery(email);message('اگر حساب مدیر در Netlify Identity ساخته شده باشد، لینک بازیابی به ایمیل شما ارسال می‌شود.');}catch(e){message('ارسال ایمیل بازیابی ممکن نشد. ابتدا Identity را در داشبورد Netlify فعال و حساب مدیر را دعوت کنید.',true);}});
+$('resetForm').addEventListener('submit',async e=>{e.preventDefault();clearMessage();const a=$('newPassword').value,b=$('confirmPassword').value;if(a.length<8||a!==b){message('رمزها باید یکسان و حداقل ۸ کاراکتر باشند.',true);return;}try{await updateUser({password:a});message('رمز جدید ذخیره شد.');const user=await getUser();showUser(user);}catch(err){message('ذخیره رمز انجام نشد؛ لینک بازیابی ممکن است منقضی شده باشد.',true);}});
+
+var siteConfig={};
+function cfgVal(id,v){var el=$('cfg_'+id);if(el)el.value=v==null?'':v;}
+function renderConfigForm(c){siteConfig=c||{};['store_name','tagline','announcement','phone1','phone2','instagram','telegram','eitaa','bale','shipping_fee','free_shipping_threshold','shipping_text','home_title','home_subtitle','promo_image','promo_link','accent_color','background_color'].forEach(k=>cfgVal(k,siteConfig[k]));['show_categories','show_promo','show_new_products','show_featured','show_fabric'].forEach(k=>{if($('cfg_'+k))$('cfg_'+k).checked=siteConfig[k]!==false;});if(siteConfig.promo_image){$('promoImagePreview').src=siteConfig.promo_image;$('promoImagePreview').classList.remove('hidden');}var pages=siteConfig.pages||{};['about','shipping','returns','faq','size','fabric','installments'].forEach(k=>cfgVal('page_'+k,pages[k]||''));$('cfgSlides').innerHTML='<div class="slide-grid">'+(siteConfig.slides||[]).slice(0,3).map((x,i)=>'<div class="slide-card"><b>اسلاید '+(i+1)+'</b><input type="hidden" id="cfg_slide_'+i+'_image" value="'+orderEscape(x.image||'')+'"><label>انتخاب عکس اسلاید</label><input class="image-pick" type="file" accept="image/*" id="slideFile_'+i+'"><div class="upload-preview"><img id="slidePreview_'+i+'" class="'+(x.image?'':'hidden')+'" src="'+orderEscape(x.image||'')+'" alt="پیش‌نمایش"><span>عکس از دستگاه انتخاب شود</span></div><div class="field"><label>عنوان</label><input class="admin-input" id="cfg_slide_'+i+'_title" value="'+orderEscape(x.title||'')+'"></div><div class="field"><label>توضیح</label><input class="admin-input" id="cfg_slide_'+i+'_text" value="'+orderEscape(x.text||'')+'"></div></div>').join('')+'</div>';}
+async function loadSettings(){var st=$('settingsStatus');st.textContent='در حال دریافت تنظیمات…';try{var r=await fetch('/api/settings',adminFetchOptions({cache:'no-store'})),d=await r.json();if(!r.ok)throw new Error(d.error||'دریافت تنظیمات ناموفق بود');renderConfigForm(d.settings);st.textContent='تنظیمات بارگذاری شد.';}catch(e){st.textContent=e.message;st.style.background='#fae5e2';st.style.color='#8a2820';}}
+function readConfigForm(){var c={};['store_name','tagline','announcement','phone1','phone2','instagram','telegram','eitaa','bale','shipping_fee','free_shipping_threshold','shipping_text','home_title','home_subtitle','promo_image','promo_link','accent_color','background_color'].forEach(k=>{var el=$('cfg_'+k);c[k]=el?el.value:''});c.shipping_fee=Number(c.shipping_fee)||0;c.free_shipping_threshold=Number(c.free_shipping_threshold)||0;['show_categories','show_promo','show_new_products','show_featured','show_fabric'].forEach(k=>c[k]=$('cfg_'+k).checked);c.pages={};['about','shipping','returns','faq','size','fabric','installments'].forEach(k=>c.pages[k]=$('cfg_page_'+k).value);c.slides=[0,1,2].map(i=>({image:$('cfg_slide_'+i+'_image')?.value||'',title:$('cfg_slide_'+i+'_title')?.value||'',text:$('cfg_slide_'+i+'_text')?.value||''}));return c;}
+async function uploadSiteImage(file){if(!file)throw new Error('ابتدا یک عکس انتخاب کن.');if(!file.type.startsWith('image/'))throw new Error('فایل باید تصویر باشد.');if(file.size>4*1024*1024)throw new Error('برای بارگذاری مطمئن، حجم هر عکس باید کمتر از ۴ مگابایت باشد.');var fd=new FormData();fd.append('image',file);var r=await fetch('/api/settings',adminFetchOptions({method:'POST',body:fd}));var d=await r.json();if(!r.ok)throw new Error(d.error||'بارگذاری عکس انجام نشد.');return d.url;}
+$('promoImageFile').addEventListener('change',async function(){if(!this.files[0])return;var st=$('settingsStatus');st.textContent='در حال بارگذاری عکس بنر…';try{var url=await uploadSiteImage(this.files[0]);$('cfg_promo_image').value=url;$('promoImagePreview').src=url;$('promoImagePreview').classList.remove('hidden');st.textContent='عکس بنر بارگذاری شد؛ برای ثبت نهایی، ذخیره تنظیمات را بزن.';}catch(e){st.textContent=e.message;st.style.background='#fae5e2';st.style.color='#8a2820';}});
+$('cfgSlides').addEventListener('change',async function(e){var f=e.target;if(!f.matches('input[type=file]')||!f.files[0])return;var i=f.id.replace('slideFile_',''),st=$('settingsStatus');st.textContent='در حال بارگذاری عکس اسلاید…';try{var url=await uploadSiteImage(f.files[0]);$('cfg_slide_'+i+'_image').value=url;$('slidePreview_'+i).src=url;$('slidePreview_'+i).classList.remove('hidden');st.textContent='عکس اسلاید بارگذاری شد؛ برای ثبت نهایی، ذخیره تنظیمات را بزن.';}catch(err){st.textContent=err.message;st.style.background='#fae5e2';st.style.color='#8a2820';}});
+$('saveSettings').addEventListener('click',async function(){var b=this;b.disabled=true;var st=$('settingsStatus');st.textContent='در حال ذخیره تنظیمات…';try{var r=await fetch('/api/settings',adminFetchOptions({method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(readConfigForm())}));var d=await r.json();if(!r.ok)throw new Error(d.error||'ذخیره تنظیمات ناموفق بود');renderConfigForm(d.settings);st.textContent='همه تنظیمات با موفقیت ذخیره شد. برای مشاهده تغییرات، سایت را تازه‌سازی کن.';st.style.background='#e8f4e8';st.style.color='#245b2a';}catch(e){st.textContent=e.message;st.style.background='#fae5e2';st.style.color='#8a2820';}finally{b.disabled=false;}});
+
+function showAdminSection(name){var ids=['gallery','orders','wheel','settings'];$('adminHome').classList.toggle('hidden',name!=='home');ids.forEach(id=>$('section-'+id).classList.toggle('hidden',name!==id));$('adminSectionMenu').value=name;if(name==='wheel')loadWheelPrizes();window.scrollTo({top:0,behavior:'smooth'});}
+$('adminSectionMenu').addEventListener('change',e=>showAdminSection(e.target.value));document.addEventListener('click',e=>{var t=e.target.closest('[data-open-section],[data-go-home]');if(!t)return;showAdminSection(t.hasAttribute('data-go-home')?'home':t.dataset.openSection);});
+$('logoutBtn').addEventListener('click',async()=>{await logout();view('loginView');$('password').value='';message('از پنل خارج شدید.');});
+boot();
+</script>
+</body></html>
